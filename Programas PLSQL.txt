@@ -1,0 +1,167 @@
+Programa 1: Hacer un triángulo con asteriscos
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+ACCEPT N PROMPT 'Dime un numerito: '
+DECLARE 
+  N NUMBER(3):='&N';
+  cadena VARCHAR2(256);
+BEGIN
+  FOR I IN 1..N  LOOP
+
+    cadena:='';
+
+    -- BLANCOS
+    FOR B IN 1..N-I LOOP
+      cadena:=cadena || ' ';
+    END LOOP;
+
+    -- ASTERISCOS
+    FOR A IN 1..(2 * I) - 1 LOOP
+      cadena:=cadena || '*';
+    END LOOP;
+     DBMS_OUTPUT.PUT_LINE(cadena);
+  END LOOP;
+
+END;
+/
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+
+---------------------------------------------------
+
+PROGRAMA 2: Pasar de kilómetros a millas
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+ACCEPT N PROMPT 'Dime el número de kilometros que quieres que pase a millas'
+DECLARE
+  N NUMBER:='&N';
+  R NUMBER;
+  
+BEGIN
+  R:=N/1.609;
+  
+  DBMS_OUTPUT.PUT_LINE(R ||  'millas');
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
+
+---------------------------------------------------
+
+PROGRAMA 3: Programa que solucione el problema x^2 = 4
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF 
+PROMPT 'Vamos a despejar x^2 = 4'
+DECLARE
+  R NUMBER;
+  
+BEGIN
+  R:=SQRT(4);
+  DBMS_OUTPUT.PUT_LINE('El resultado es ' || R);
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
+
+---------------------------------------------------
+
+PROGRAMA 4: Programa que calcule el área de un rectángulo
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF 
+ACCEPT Ba PROMPT 'Dime la base: '
+ACCEPT Al PROMPT 'Dime la altura: '
+DECLARE
+  Ba NUMBER:='&Ba';
+  Al NUMBER:='&Al';
+  R NUMBER;
+  
+BEGIN
+  R:=Ba * Al;
+  DBMS_OUTPUT.PUT_LINE('El resultado es ' || R);
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
+
+---------------------------------------------------
+
+PROGRAMA 5: Programa que calcule el área de un triángulo
+
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF 
+ACCEPT Ba PROMPT 'Dime la base: '
+ACCEPT Al PROMPT 'Dime la altura: '
+DECLARE
+  Ba NUMBER:='&Ba';
+  Al NUMBER:='&Al';
+  R NUMBER;
+  
+BEGIN
+  R:=(Ba * Al) / 2;
+  DBMS_OUTPUT.PUT_LINE('El resultado es: ' || R);
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
+
+---------------------------------------------------
+
+Programa 6: Un programa que resuelva una ecuación de segundo grado ax^2 + bx + c
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF 
+ACCEPT ax PROMPT 'Dime a : '
+ACCEPT bx PROMPT 'Dime b: '
+ACCEPT cx PROMPT 'Dime c: '
+DECLARE
+  ax NUMBER:='&ax';
+  bx NUMBER:='&bx';
+  cx NUMBER:='&cx';
+  R1 NUMBER;
+  R2 NUMBER;
+  
+BEGIN
+  R1:=((-bx) - SQRT((bx*bx) - (4 * ax * cx))) / (2 * ax);
+  R2:=((-bx) + SQRT((bx*bx) - (4 * ax * cx))) / (2 * ax);
+  DBMS_OUTPUT.PUT_LINE('Los resultados son: ' || R1 || ' y ' || R2);
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
+
+---------------------------------------------------
+
+Programa 7: Programa que te da un número y lo pasa a horas, minutos y segundos
+
+SET SERVEROUTPUT ON
+SET VERIFY OFF 
+ACCEPT cifra PROMPT 'Dime un numero de segundos : '
+DECLARE
+  cifra NUMBER:='&cifra';
+  horas NUMBER (3);
+  minutos NUMBER(3);
+  segundos NUMBER(3);
+  
+BEGIN
+  horas:= cifra / 3600;
+  minutos := mod(cifra, 3600) / 60;
+  segundos := mod(cifra,  3600);
+  segundos:=mod(segundos, 60);
+  DBMS_OUTPUT.PUT_LINE(horas || ':' || minutos || ':' || segundos);
+
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON

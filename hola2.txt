@@ -1,0 +1,29 @@
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+
+ACCEPT N VARCHAR2 'Dime un número';
+DECLARE
+tamano NUMBER := &N;
+espacios NUMBER(3);
+str VARCHAR2(256) := CHR(9);
+cambio NUMBER := 1;
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('empieza');
+  espacios := 0;
+  LOOP
+    str := CHR(9);
+    espacios := espacios + cambio;
+    IF espacios > tamano - 1 OR espacios = 0 THEN
+      cambio := -cambio;
+    END IF;
+    FOR i IN 1..espacios LOOP
+      str := str||' ';
+    END LOOP;
+    str := str||'*';
+    DBMS_OUTPUT.PUT_LINE(str);
+  END LOOP;
+END;
+/
+
+SET SERVEROUTPUT OFF
+SET VERIFY ON
